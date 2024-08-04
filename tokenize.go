@@ -4,9 +4,27 @@ import (
 	"github.com/atouba/piscine"
 )
 
+func isPunctuation(c rune) bool {
+	if c == '.' || c == ',' || c == '!' ||
+	c == '?' || c == ':' && c == ';' ||
+	c == '\'' || c == '(' {
+		return true
+	}
+	return false
+}
+
 func token(data string) string {
 	i := 0
-	for ; i < piscine.StrLen(data) && data[i] != ' '; {
+	for ; i < piscine.StrLen(data);  {
+		if data[0] == '(' && data[i] == ')' {
+			i++
+			break
+		} else if (data[i] == ' ' || isPunctuation(rune(data[i]))) && data[0] != '(' {
+			break
+		}
+		i++
+	}
+	if i == 0 {
 		i++
 	}
 	return data[:i]
