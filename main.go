@@ -24,6 +24,7 @@ func main() {
 	defer out_file.Close()
 
 	tokens := tokenize(string(data))
+	applyChanges(tokens)
 	for _, t := range tokens {
 		out_file.WriteString(t)
 		out_file.WriteString("\n")
