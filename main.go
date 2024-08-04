@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	"github.com/atouba/piscine"
+	// "github.com/atouba/piscine"
 )
 
 func main() {
@@ -17,11 +17,15 @@ func main() {
 		fmt.Println("Error reading input file")
 	}
 
-	out_file, out_err := os.OpenFile(os.Args[2], os.O_CREATE | os.O_WRONLY | os.O_TRUNC, 0644)
+	out_file, out_err := os.OpenFile(os.Args[2], os.O_CREATE | os.O_WRONLY | os.O_APPEND, 0644)
 	if out_err != nil {
 		fmt.Println("Error opening/creating the output file")
 	}
 	defer out_file.Close()
 
-	out_file.WriteString(piscine.Capitalize(string(data)))
+	tokens := tokenize(string(data))
+	for _, t := range tokens {
+		out_file.WriteString(t)
+		out_file.WriteString("\n")
+	}
 }
