@@ -19,9 +19,12 @@ func applyChanges(tokens []string) {
 	for i, token := range tokens {
 		if token[0] == '(' {
 			applyCaseNumericConversion(tokens, i)
-		} else if i + 1 <= len(tokens) &&
-		(token == "a" || token == "A") && isVowelStart(tokens[i + 1]) {
-			token = token + "n"
+		}
+		if ((token == "a" || token == "A") && i + 1 < len(tokens)) &&
+		((isVowelStart(tokens[i + 1])) || 
+		(tokens[i + 1][0] ==  '(' &&
+		i + 2 < len(tokens) && isVowelStart(tokens[i + 2]))) {
+			tokens[i] = tokens[i] + "n"
 		}
 	}
 }
