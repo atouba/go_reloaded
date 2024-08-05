@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	// "github.com/atouba/piscine"
+	"github.com/atouba/piscine"
 )
 
 func main() {
@@ -25,8 +25,26 @@ func main() {
 
 	tokens := tokenize(string(data))
 	applyChanges(tokens)
-	for _, t := range tokens {
-		out_file.WriteString(t)
-		out_file.WriteString("\n")
+	writeOutput(tokens, out_file)
+}
+
+func writeOutput(tokens []string, out_file *os.File) {
+	//  a word is considered an actual word preceded by a space
+	//  and appended by a punctituation mark if there's any
+	var word string
+	for i := 0; i < len(tokens); i++ {
+		if tokens[i][0] == ' ' {
+			continue
+		}
+		word = tokens[i]
+		if !isPunctuation(rune(tokens[i][0])) && i != 0 {
+			word = piscine.Concat(" ", word)
+		}
+		if i < len(tokens) - 1 && isPunctuation(rune(tokens[i + 1][0])) {  // how come tokens[][0] is not rune
+			word = piscine.Concat(word, tokens[i + 1])
+			tokens[i + 1] = " "
+		}
+		out_file.WriteString(word)
+		// out_file.WriteString(" ")
 	}
 }
