@@ -2,3 +2,7 @@ github.com/01-edu/z01 v0.1.0 h1:Rr1p92CKYXUgVFw872iGDABXpdkuKf2jmS+KV6r1034=
 github.com/01-edu/z01 v0.1.0/go.mod h1:BH7t35JaNFuP83rTJDc5nkSfgmC/HYVcJsUcdFqYZNo=
 github.com/atouba/piscine v0.0.0-20240803111029-0e563417d972 h1:zkT5+VR1uDdTE4Td3/ZTm84mUIlnneK4d1naDeVaZmY=
 github.com/atouba/piscine v0.0.0-20240803111029-0e563417d972/go.mod h1:ufFaMKHZDdwRbb7zomNZMQVZVbZdZripeFU3MvDTBdU=
+github.com/atouba/piscine v0.0.0-20240805133844-edd19821054a h1:wCoS10/zk7Qcs8PoUn7odNVj9gqhpkOls3Ws69lcbhU=
+github.com/atouba/piscine v0.0.0-20240805133844-edd19821054a/go.mod h1:ufFaMKHZDdwRbb7zomNZMQVZVbZdZripeFU3MvDTBdU=
+github.com/atouba/piscine v0.0.0-20240805134458-a701bfd98cc6 h1:fQt195Nz4s9NUMt9LdKOjDZn9lTr3pKDtczumx3nQag=
+github.com/atouba/piscine v0.0.0-20240805134458-a701bfd98cc6/go.mod h1:ufFaMKHZDdwRbb7zomNZMQVZVbZdZripeFU3MvDTBdU=
