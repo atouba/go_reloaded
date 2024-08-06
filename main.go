@@ -48,17 +48,20 @@ func writeOutput(tokens []string, out_file *os.File) {
 	for i := 0; i < len(tokens); i++ {
 		if tokens[i][0] == ' ' { continue }
 		word = tokens[i]
-		if (!isPunctuation(rune(tokens[i][0])) ||
-		isNonStarterWordWithAQuote(tokens, i)) &&
-		i != 0 {
+		if i != 0 && (!isPunctuation(rune(tokens[i][0])) ||
+		isNonStarterWordWithAQuote(tokens, i)) {
 			word = " " + word
 		}
 		if i + 1 < len(tokens) && isPunctuation(rune(tokens[i + 1][0])) {  // how come tokens[][0] is not rune
-			if tokens[i + 1][0] == '\'' && quoteCounting(tokens, i) % 2 == 0 {
+			if tokens[i + 1][0] == '\'' && quoteCounting(tokens, i + 1) % 2 == 0 {
 				tokens[i + 2] = tokens[i + 1] + tokens[i + 2]
 			} else {
 				word = piscine.Concat(word, tokens[i + 1])
 			}
+			tokens[i + 1] = " "
+		} else if i + 1 < len(tokens) && i == 0 && rune(tokens[i][0]) == '\'' {
+			// for cases like ' a
+			word += tokens[i + 1]
 			tokens[i + 1] = " "
 		}
 		out_file.WriteString(word)
