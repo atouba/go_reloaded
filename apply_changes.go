@@ -1,14 +1,13 @@
 package main
 
 import (
-	// "fmt"
 	"github.com/atouba/piscine"
 )
 
 func isVowelStart(word string) bool {
 	vowels := []rune{'a', 'e', 'i', 'o', 'h'}
 	for _, v := range vowels {
-		if rune(word[0]) == rune(v) || rune(word[0]) == rune(v - 32) {     // !?
+		if rune(word[0]) == v || rune(word[0]) == v - 32 {
 			return true
 		}
 	}
