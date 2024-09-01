@@ -6,7 +6,7 @@ import (
 
 func isPunctuation(c rune) bool {
 	if c == '.' || c == ',' || c == '!' ||
-	c == '?' || c == ':' && c == ';' ||
+	c == '?' || c == ':' || c == ';' ||
 	c == '\'' || c == '(' {
 		return true
 	}
