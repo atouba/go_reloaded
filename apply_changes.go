@@ -45,7 +45,7 @@ func rightFunction(c rune) (func (string) (string)) {
 		}
 	default:
 		f = func (n string) string {
-			return piscine.ConvertBase(n, bases[1], bases[2])
+			return piscine.ConvertBase(piscine.ToUpper(n), bases[1], bases[2])
 		}
 	}
 	return f
