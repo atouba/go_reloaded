@@ -55,7 +55,7 @@ func applyCaseNumericConversion(tokens []string, index int) {
 	var exec func (string) (string)
 	var number_of_words int
 
-	number_of_words = max(1, piscine.BasicAtoi(tokens[index]))
+	number_of_words = max(1, customizedAtoi(tokens[index]))
 	
   exec = rightFunction(rune(tokens[index][1]))
 
