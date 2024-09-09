@@ -15,8 +15,6 @@ func goReloaded(in_file_name, out_file_name string) {
 	out_file, out_err := os.OpenFile(out_file_name, os.O_CREATE | os.O_WRONLY | os.O_TRUNC, 0644)
 	if out_err != nil {
 		fmt.Println("Error opening/creating the output file")
-		// is it okay to exit without closing the file?
-		// also for the output is the "exit status " output okay?
 		os.Exit(1)
 	}
 	defer out_file.Close()

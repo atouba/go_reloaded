@@ -20,7 +20,7 @@ func isNonStarterWordWithAQuote(tokens []string, word_index int) bool {
 }
 
 func writeOutput(tokens []string, out_file *os.File) {
-	//  a word is considered an actual word preceded by a space  and appended by a punctituation mark if there's any except in the case of ' where there is 2 cases
+	//  a word is considered an actual word preceded by a space and appended by a punctuation mark if there's any except in the case of ' where there is 2 cases
 	var word string
 	for i := 0; i < len(tokens); i++ {
 		if tokens[i][0] == ' ' { continue }
